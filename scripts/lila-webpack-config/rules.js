@@ -9,7 +9,7 @@ export const babelLoader = () => [
     options: {
       babelrc: false,
       configFile: false,
-      presets: ['@babel/preset-env', '@babel/preset-flow'],
+      presets: ['@babel/preset-env'],
       plugins: [
         '@babel/plugin-syntax-dynamic-import',
         '@babel/plugin-proposal-class-properties',
@@ -29,11 +29,7 @@ export const babelLoader = () => [
     options: {
       babelrc: false,
       configFile: false,
-      presets: [
-        '@babel/preset-env',
-        '@babel/preset-react',
-        '@babel/preset-flow',
-      ],
+      presets: ['@babel/preset-env', '@babel/preset-react'],
       plugins: [
         '@babel/plugin-syntax-dynamic-import',
         '@babel/plugin-proposal-class-properties',
@@ -48,6 +44,34 @@ export const babelLoader = () => [
     },
   },
 ];
+
+export const typescriptLoader = () => ({
+  test: /\.(ts|tsx)$/,
+  use: [
+    {
+      loader: 'babel-loader',
+      options: {
+        babelrc: false,
+        configFile: false,
+        presets: ['@babel/preset-env', '@babel/preset-react'],
+        plugins: [
+          '@babel/plugin-syntax-dynamic-import',
+          '@babel/plugin-proposal-class-properties',
+          '@babel/plugin-transform-react-jsx',
+          '@babel/plugin-transform-runtime',
+          [
+            'import',
+            { libraryName: 'antd', libraryDirectory: 'es', style: 'css' },
+            'ant',
+          ],
+        ],
+      },
+    },
+    {
+      loader: 'awesome-typescript-loader',
+    },
+  ],
+});
 
 export const urlLoader = () => ({
   loader: 'url-loader',

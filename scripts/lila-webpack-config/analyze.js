@@ -20,7 +20,7 @@ export default ({ lila, webpack, entry, cmd, config }) => {
   baseConfig.plugins.push(new WebpackBar(), new SpeedMeasurePlugin());
 
   return {
-    entry: `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.js`,
+    entry: `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.ts`,
     output: {
       path: join(root, tmpDir, 'analyze'),
       filename: 'index.js',

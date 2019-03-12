@@ -21,7 +21,7 @@ export default ({ lila, webpack, entry, cmd, config, makeType }) => {
   return {
     entry: [
       'webpack-hot-middleware/client?reload=true',
-      `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.js`,
+      `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.ts`,
     ],
     output: {
       path: join(root, devDir),

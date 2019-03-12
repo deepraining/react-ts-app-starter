@@ -17,4 +17,6 @@ export default lila => {
 
     return webpackConfig;
   });
+
+  setSetting('extToSearch', 'ts');
 };

@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { minHtmlOptions, define, provide } from './settings';
 import {
   babelLoader,
+  typescriptLoader,
   htmlLoader,
   urlLoader,
   cssLoader,
@@ -44,6 +45,7 @@ export default ({ lila, webpack, entry, cmd }) => {
     module: {
       rules: [
         ...babelLoader(),
+        typescriptLoader(),
         urlLoader(),
         htmlLoader(),
         ...cssLoader(isBuild),
@@ -53,7 +55,7 @@ export default ({ lila, webpack, entry, cmd }) => {
     },
     resolve: {
       modules: [srcPath, 'node_modules'],
-      extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
+      extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.ts', '.tsx'],
     },
     optimization: {
       minimize: isBuild,

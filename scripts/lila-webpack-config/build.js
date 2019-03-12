@@ -39,7 +39,7 @@ export default ({ lila, webpack, entry, cmd, config, makeType }) => {
   const useStaticServer = cmd !== 'start';
 
   return {
-    entry: `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.js`,
+    entry: `${srcPath}/${entry === defaultEntry ? '' : `${entry}/`}index.ts`,
     output: {
       path: join(root, buildDir),
       filename: '[chunkhash].js',
